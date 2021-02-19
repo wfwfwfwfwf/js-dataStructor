@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../01stack的fucntion实现.js"></script>
+<script>
+  //回文：从左往右把字符串的每一个字符，依次放入栈中，最后从栈的顶部往底部看去，就是一个反过来的字符串
+  function isPalindrome(word){
+    var s = new Stack();
+    for(var i=0;i<word.length;++i){
+      s.push(word[i]);
+    }
+    var newWord = '';
+    while(!s.isEmpty()){
+      newWord += s.pops();
+    }
+    if(newWord === word){
+        return true;
+    }else{
+        return false;
+    }
+  }
+
+  console.log(isPalindrome("racecar")); // true
+  console.log(isPalindrome("hello")); // false
+  console.log(isPalindrome("4567654")); //
+</script>
+</body>
+</html>

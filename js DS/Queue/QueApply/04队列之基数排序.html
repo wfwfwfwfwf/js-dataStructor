@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../01Queue的函数封装.js"></script>
+<script>
+  //js队列实现 排序之基数排序（先放一放）
+
+  function radixSort (nums) {
+    // 构建队列数组
+    var queues = [];
+    for (var i = 0; i < 10; i++) {
+      queues[i] = new Queue();
+    }
+    // 基排序
+    var isLoop = true, radix = 10;
+    do {
+      isLoop = false;
+      for (var i = 0, len = nums.length; i < len; i++) {
+        var divide = Math.floor(radix / 10),
+          temp = Math.floor(nums[i] / divide),
+          index = temp % 10;
+        if (temp) isLoop = true;
+        queues[index].enqueue(nums[i]);
+      }
+      var j = 0;
+      for (var i = 0; i < 10; i++) {
+        while (queues[i].size()) {
+          nums[j++] = queues[i].dequeue();
+        }
+      }
+      radix *= 10;
+    } while (isLoop);
+    // 返回基排序结果
+    return nums;
+  }
+
+  var nums = [];
+
+  for (var i = 0; i < 10; i++) {
+    nums[i] = Math.floor(Math.random() * 10000);
+  }
+
+  console.log('排序前：')
+  console.log(nums.toString());
+
+  radixSort(nums);
+
+  console.log('排序后：')
+  console.log(nums.toString());
+
+
+</script>
+</body>
+</html>

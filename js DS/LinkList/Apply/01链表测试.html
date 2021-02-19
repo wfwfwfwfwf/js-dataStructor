@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="../01LinkList函数封装.js"></script>
+<body>
+<script>
+ var lk = new LinkList()
+  lk.append(111)
+  lk.append(222)
+  lk.append(333)
+  // console.log(lk.toString())
+  // console.log(lk)
+  lk.insert(1,'asd')      // 111 asd  222 333
+  lk.insert(3,'asdasd')   // 111 asd  asdasd 222 333
+  lk.insert(5,'asdasdasd') //111 asd  asdasd 222 asdasdasd 333
+  alert(lk)
+  alert(lk.get(1))
+  alert(lk.get(2))
+  alert(lk.indexOf("asdasdasd"))
+
+  alert( lk.upData(lk.length-1,'changed'))
+  alert(lk)
+
+  console.log(lk.removeAt(lk.length-1))
+  console.log(lk.remove(333))
+  console.log(lk)
+</script>
+</body>
+</html>

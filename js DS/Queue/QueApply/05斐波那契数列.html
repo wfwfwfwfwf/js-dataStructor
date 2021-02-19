@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../01Queue的函数封装.js"></script>
+<script>
+/*
+  function Fibonacci (n) {
+    if ( n <= 2 ) {
+        return 1
+    };
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+  }
+  //问题:递归数字不能太大 否则会栈溢出
+  console.log(Fibonacci(10))
+  console.log(Fibonacci(30))
+*/
+
+  // F(n)=F(n-1)+F(n-2)（n>=3，n∈N*  兔子数列
+  // 1、1、2、3、5、8、13、21、34、55
+  {
+    function fibonacci(n) {
+      if (n <= 2)
+        return 1;
+
+      var queue = new Queue();
+      // 先存入序列的前两个值
+      queue.enqueue(1);
+      queue.enqueue(1);
+      var index = 0;
+      //n = 4
+      while (index < n - 2) {
+        var delItem = queue.dequeue(); // 移除队列的头部元素
+        var headItem = queue.front(); // 获取队列头部元素(因为上一步已经将头部元素移除)
+        var resNum = delItem + headItem;
+        queue.enqueue(resNum); // 将两者之和存入队列
+        index += 1;
+      }
+      //此时队里只有两个元素,去除队头元素
+      queue.dequeue();
+      // 读取队头元素
+      return queue.front();
+    }
+    //这个数列的第十项是什么
+    console.log("fibonacci:", fibonacci(10)); // 55
+    //这个数列的第100项是什么
+    console.log("fibonacci:", fibonacci(100)); // 354224848179262000000
+  }
+
+  /*
+  思路分析:
+  需要先将两个1 添加到队列中
+  定义index来计数，采用while循环，终止条件是 index < n - 2(因为每次遍历我们只保留2个元素在队列中)
+  使用dequeue方法移除队列头部的元素，标记为 delItem;
+  使用front方法获取此时头部的元素，标记为 headItem;
+  使用enqueue方法将前两者的和从尾部放入队列中
+  index + 1
+
+  当循环结束后，队列里面只有两个元素，用dequeue方法移除头部元素后，再用head方法获取的头部元素就是最终的结果，
+  而且此方法不会产生“栈溢出”错误。
+*/
+</script>
+</body>
+</html>

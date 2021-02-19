@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../01Queue的函数封装.js"></script>
+<script>
+  var queue = new Queue()
+  //进队
+  queue.enqueue(5)
+  queue.enqueue(10)
+  queue.enqueue(100)
+  queue.enqueue(1500)
+  console.log(queue)
+  //出队
+  queue.dequeue()
+  console.log(queue)
+  console.log(queue.front())
+  console.log(queue.size())
+  console.log(queue.toString())
+  console.log(queue.isEmpty())
+
+</script>
+</body>
+</html>

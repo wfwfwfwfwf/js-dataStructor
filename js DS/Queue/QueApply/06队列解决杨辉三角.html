@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="../01Queue的函数封装.js"></script>
+<body>
+<script>
+/*   计算的方式：f[i][j] = f[i-1][j-1] + f[i-1][j], i 代表行数，j代表一行的第几个数，
+     如果j= 0 或者 j = i ,则 f[i][j] = 1。
+
+     思路分析:使用队列解决杨辉三角问题
+             杨辉三角中的每一行，都依赖于上一行，假设现在队列里已经存储了第n-1行的数据，
+             那么输出第n行时，只需要将队列里的数据依次出队列，进行计算得到下一行的数值并讲计算所得存储到队列中
+             然后我们需要两层for循环，将n-1行和n行的数据分开打印；
+             有上图可以得出规律，n行只有n个数，所以我们就可以使用for循环控制enqueue的次数，
+             n次结束后，队列里存储的就是计算好的第n+1行的数据*/
+
+  {
+    function yangHui(n) {
+      var queue = new Queue();
+      queue.enqueue(1); // 先在队列中存储第一行的数据
+      for (var i = 1; i <= n; i++) { // 第一层循环控制层数
+        var line = "";
+        var pre = 0;
+        for (var j = n; j > i; j--) { // 打印空格
+          document.write("&nbsp;");
+        }
+        for (var j = 0; j < i; j++) { // 第二层控制当前层的数据
+          var item = queue.dequeue();
+          var value = item + pre; // 计算下一行的值
+          pre = item;
+          line += item + " ";
+          queue.enqueue(value);
+        }
+        queue.enqueue(1); // 将每层的最后一个数值 1 存入队列中
+        document.write(line + "<br />");
+      }
+    }
+    yangHui(10);
+  }
+</script>
+</body>
+</html>

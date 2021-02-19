@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="../01Set函数实现及应用.js"></script>
+<body>
+<script>
+  var set1 = new Set()
+  set1.add(100)
+  set1.add(0)
+  set1.add(200)
+  set1.add(300)
+  set1.add('wf')
+  set1.add('ws')
+  var set2 = new Set()
+  set2.add(100)
+  set2.add(200)
+  set2.add(300)
+  set2.add(500)
+  set2.add(700)
+  set2.add('wf')
+
+ console.log(set1.union(set2))
+  //打印 前有的 后没有
+ console.log(set1.difference(set2))
+ console.log(set2.difference(set1))
+ console.log(set2.intersection(set1))
+ console.log(set2.subset(set1))
+
+
+</script>
+</body>
+</html>

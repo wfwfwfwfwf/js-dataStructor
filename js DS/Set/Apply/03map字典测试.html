@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../02Dictionary函数实现.js"></script>
+<script>
+  //Dictionary ===就是js中的map
+  var map = new Dictionary()
+  map.set('name','wf')
+  map.set('age',20)
+  map.set('hobby','playgame')
+  map.set(10,100)
+  console.log(map)
+  console.log(map.has('hobby'))
+  console.log(map.has('123'))
+  // console.log(map.remove('age'))
+  console.log(map.get('name'))
+  console.log(map.get('age'))
+
+  console.log(map.keys())
+  console.log(map.values())
+</script>
+</body>
+</html>

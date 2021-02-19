@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../01stack的fucntion实现.js"></script>
+<script>
+
+function bracket(str) {
+  var stack = new Stack();
+  var str2 = [];
+  for (var i = 0;i<str.length;i++){
+      str2.push(str[i])
+  }
+  // console.log(str2)
+  for (var j = 0;j<str.length;j++){
+    if(str[j]==="(" || str[j] === "["|| str[j]==="{"){
+      stack.push(str[j]);
+    }
+    console.log(stack)
+
+
+      switch (str[j]) {
+          case ")":
+            var top = stack.pops();
+            if (top !== "(") {
+              return false;
+            }
+            break;
+
+        case "]":
+          var top = stack.pops();
+          if (top !== "[") {
+            return false;
+          }
+          break;
+
+        case "}":
+          var top = stack.pops();
+          if (top !== "{") {
+            return false;
+          }
+          break;
+    }
+  }
+  if (stack.isEmpty()){
+    return true
+  }else {
+    return false
+  }
+
+  // return stack.length === 0;
+}
+
+console.log(bracket("{}[]()"));
+console.log(bracket("{}(()){}[]"));
+
+console.log(bracket("[[{()}]]"));
+console.log(bracket("{[[][][]]"));//F
+
+
+</script>
+</body>
+</html>

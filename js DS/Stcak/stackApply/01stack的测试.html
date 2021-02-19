@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../01stack的fucntion实现.js"></script>
+<script>
+      var stack = new Stack()
+      stack.push(1)
+      stack.push(5)
+      stack.push(7)
+      stack.push(2)
+      stack.push(3)
+      stack.push('(')
+      stack.push(')')
+      stack.push(')')
+      stack.push(')')
+      console.log(stack)
+      console.log("弹出栈顶元素:"+stack.pops())
+      console.log("查看栈顶元素:"+stack.peak())
+      console.log("查是否为空:"+stack.isEmpty())
+      console.log("栈的长度:"+stack.size())
+      console.log(stack.toString())
+      // stack.clear()
+      // console.log(stack)
+
+</script>
+</body>
+</html>

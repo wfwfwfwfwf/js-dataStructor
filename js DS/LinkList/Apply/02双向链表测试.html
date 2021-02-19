@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="../03doublyLinkedList函数封装.js"></script>
+<body>
+<script>
+      var dblist = new DBLinkList()
+      dblist.append(123)
+      dblist.append(789)
+      dblist.append(987)
+      dblist.append(321)
+      console.log(dblist)
+      console.log(dblist.forwardString())
+      console.log(dblist.backwardString())
+      dblist.insert(2,'charu')
+      console.log(dblist.forwardString())
+</script>
+</body>
+</html>
